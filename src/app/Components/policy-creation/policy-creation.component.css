@@ -1,0 +1,78 @@
+/* Card Styling */
+mat-card {
+  max-width: 500px;       /* keep form narrow */
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+/* Title */
+mat-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #3f51b5;
+}
+
+/* Form fields */
+mat-form-field.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  font-size: 13px;
+}
+
+mat-label {
+  font-size: 13px;
+}
+
+textarea.mat-input-element,
+input.mat-input-element {
+  font-size: 13px;
+  height: 32px;
+  padding: 2px 6px;
+}
+
+/* Textarea specifically */
+textarea.mat-input-element {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+button[mat-raised-button] {
+  font-size: 13px;
+  padding: 4px 10px;
+  min-width: 90px;
+  border-radius: 6px;
+}
+
+button[color="primary"] {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+button[color="primary"]:hover {
+  background-color: #303f9f;
+}
+
+button[color="warn"] {
+  background-color: #f44336;
+  color: #fff;
+}
+
+button[color="warn"]:hover {
+  background-color: #d32f2f;
+}

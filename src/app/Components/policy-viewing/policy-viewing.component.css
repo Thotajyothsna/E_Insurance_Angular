@@ -1,0 +1,61 @@
+/* Card styling */
+mat-card {
+  max-width: 1000px; /* increased width */
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #f9f9f9;
+}
+
+/* Title */
+mat-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #3f51b5;
+}
+
+/* Search bar smaller */
+mat-form-field.full-width {
+  width: 300px; /* smaller width */
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+input.mat-input-element {
+  font-size: 13px;
+  height: 28px;
+  padding: 2px 6px;
+}
+
+/* Table container for scrolling if needed */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+
+/* Header styling */
+::ng-deep th.mat-header-cell {
+  font-weight: 600;
+  background-color: #3f51b5 !important; /* header background */
+  color: #fff !important;               /* header text color */
+}
+
+/* Cells */
+td.mat-cell {
+  padding: 8px 12px;
+}
+
+/* Paginator */
+mat-paginator {
+  font-size: 12px;
+  margin-top: 10px;
+}

@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-registerForm: FormGroup;
+  registerForm: FormGroup;
   usernameExistsError: string | null = null;
 
   constructor(
@@ -18,11 +18,11 @@ registerForm: FormGroup;
     private snackBar: MatSnackBar
   ) {
     this.registerForm = this.fb.group({
-      fullname: ['', Validators.required],
+      fullname: ['', [Validators.required,Validators.pattern(/^[A-Za-z ]+$/)]],
       email: ['', [Validators.required, Validators.email]],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      role: ['', Validators.required],
+      username: ['', [Validators.required,Validators.pattern(/^[A-Za-z](?:[A-Za-z]|_(?!_))*$/)]],
+      password: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(25)]],
+      role: ['', [Validators.required]],
     });
   }
 

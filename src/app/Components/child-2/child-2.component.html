@@ -1,0 +1,19 @@
+<h3>Filtered Employees</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Department</th>
+    </tr>
+    <tr *ngFor="let emp of employees">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.department}}</td>
+    </tr>
+    </tbody>
+</table>

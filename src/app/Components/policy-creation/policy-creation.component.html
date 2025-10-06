@@ -1,0 +1,75 @@
+<mat-card>
+  <mat-card-title>Create Policy</mat-card-title>
+  <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+
+    <!-- Customer Autocomplete -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select Customer</mat-label>
+      <input type="text" matInput [formControl]="customerFilterCtrl" [matAutocomplete]="autoCustomer">
+      <mat-autocomplete #autoCustomer="matAutocomplete" (optionSelected)="policyForm.get('customerId')?.setValue($event.option.value)">
+        <mat-option *ngFor="let cust of filteredCustomers | async" [value]="cust.id">
+          {{ cust.name }} ({{ cust.id }})
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- Scheme Autocomplete -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select Scheme</mat-label>
+      <input type="text" matInput [formControl]="schemeFilterCtrl" [matAutocomplete]="autoScheme">
+      <mat-autocomplete #autoScheme="matAutocomplete" (optionSelected)="policyForm.get('schemeId')?.setValue($event.option.value)">
+        <mat-option *ngFor="let scheme of filteredSchemes | async" [value]="scheme.id">
+          {{ scheme.name }} ({{ scheme.id }})
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- Policy Details -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Policy Details</mat-label>
+      <textarea matInput formControlName="policyDetails"></textarea>
+    </mat-form-field>
+
+    <!-- Premium -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Premium</mat-label>
+      <input matInput type="number" formControlName="premium" />
+    </mat-form-field>
+
+    <!-- Date Issued -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Date Issued</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="dateIssued">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Maturity Period -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Maturity Period (Years)</mat-label>
+      <input matInput type="number" formControlName="maturityPeriod" />
+    </mat-form-field>
+
+    <!-- Policy Lapse Date -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Policy Lapse Date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="policyLapseDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Created At -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Created At</mat-label>
+      <input matInput [matDatepicker]="picker3" formControlName="createdAt">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Submit -->
+    <div class="btn-group">
+      <button mat-raised-button color="primary" type="submit" [disabled]="policyForm.invalid">Create</button>
+      <button mat-raised-button color="warn" type="reset">Reset</button>
+    </div>
+  </form>
+</mat-card>
